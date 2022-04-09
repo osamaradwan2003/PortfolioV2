@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio V2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css"
+    />
+
+    <link href="css/app.css" rel="stylesheet" />
+  </head>
+  <body class="loading">
+    <div class="loader">
+      <div class="lds-grid">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <div class="container">
+      <header class="section header" id="home">
+        <div class="header-container">
+          <div class="left">
+            <div class="header-img">
+              <div class="shape"></div>
+              <div class="img-box">
+                <img src="assets/hero.png" />
+              </div>
+            </div>
+          </div>
+          <div class="right">
+            <h1 class="name">
+              Hi, i'm <span>OSAMA RADWAN</span>
+              A web Developer
+            </h1>
+            <p>
+              I ❤️ programming. I’ve been doing this for a decade as a full
+              stack developer and as a backend engineer.I can work on the
+              background, API-driven apps or service-oriented architecture or
+              make any software with web & desktop tools.
+            </p>
+            <a class="main-btn">
+              <span class="text">Download CV</span>
+              <span class="material-icons-round icon">
+                download_for_offline
+              </span>
+            </a>
+          </div>
+        </div>
+      </header>
+      <section
+        class="section"
+        id="about"
+        data-load="loadAbout"
+        data-loaded="false"
+      >
+        <div class="main-title">
+          <h2 class="title">
+            About
+            <span>Me</span>
+            <span class="bg-text">MY states</span>
+          </h2>
+        </div>
+
+        <div class="about-container">
+          <div class="about-left">
+            <h3 class="info-title">Information about me</h3>
+            <p class="about-info">
+              At the moment, I’m a developer advocate on Google’s Chrome team in
+              Munich, Germany. From January 2010 to November 2011, I was part of
+              the team responsible for the web presence of one of the largest
+              daily newspapers in Germany: Sueddeutsche.de. It’s a big site,
+              running on a surprisingly antiquated backend; we work hard to keep
+              things running smoothly, and to meet the high expectations of our
+              users. Generally,
+              <br /><br />
+              we did a pretty good job of it. Before Sueddeutsche, I worked for
+              Yahoo! on their equally massive European news sites. My team and I
+              took news.yahoo.com’s solid codebase, and made it localizable for
+              distinct markets and languages: we were directly responsible for
+              building and maintaining Yahoo!’s news sites in the UK, France,
+              Germany, Spain, and Italy, relaunching all five within a year. We
+              laid the foundation for further work that expanded the platform’s
+              scope to include Singapore and beyond. We did good work while
+              understaffed and under pressure, and I’m proud of our
+              accomplishments.
+            </p>
+            <a class="main-btn">
+              <span class="text">Download CV</span>
+              <span class="material-icons-round icon">
+                download_for_offline
+              </span>
+            </a>
+          </div>
+          <div class="about-right">
+            <div class="state-card">
+              <div class="state-text">
+                <h3 class="state-record">600+</h3>
+                <div class="small-text">
+                  <span>Projects</span> <br />
+                  <span>Completed</span>
+                </div>
+              </div>
+            </div>
+            <div class="state-card">
+              <div class="state-text">
+                <h3 class="state-record">600+</h3>
+                <div class="small-text">
+                  <span>Projects</span> <br />
+                  <span>Completed</span>
+                </div>
+              </div>
+            </div>
+            <div class="state-card">
+              <div class="state-text">
+                <h3 class="state-record">600+</h3>
+                <div class="small-text">
+                  <span>Projects</span> <br />
+                  <span>Completed</span>
+                </div>
+              </div>
+            </div>
+            <div class="state-card">
+              <div class="state-text">
+                <h3 class="state-record">600+</h3>
+                <div class="small-text">
+                  <span>Projects</span> <br />
+                  <span>Completed</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about-skills">
+          <h3 class="state-title"><span>MY</span> Skills</h3>
+          <div class="skills-container" id="skills"></div>
+          <div class="pagination" id="skills-pagenation"></div>
+        </div>
+
+        <div class="timeline">
+          <h2 class="state-title"><span>MY </span> timeline</h2>
+          <div class="timeline-container" id="timeline"></div>
+          <div class="pagination" id="timeline-pagenation"></div>
+        </div>
+      </section>
+      <section
+        class="section"
+        id="projects"
+        data-load="loadProjects"
+        data-loaded="false"
+      >
+        <div class="main-title">
+          <h2 class="title">
+            <span>MY</span>
+            Protfolio
+            <span class="bg-text">MY Works</span>
+          </h2>
+        </div>
+        <div class="portfolio-container">
+          <div class="project-cards" id="projects-list"></div>
+          <div class="pagination" id="projects-pagenation"></div>
+        </div>
+      </section>
+      <section class="section" id="contact">
+        <div class="main-title">
+          <h2 class="title">
+            Contact
+            <span>Me</span>
+            <span class="bg-text">My Contact</span>
+          </h2>
+        </div>
+        <div class="contact-container">
+          <div class="left">
+            <div class="info-list">
+              <div>
+                <span class="info-icon">
+                  <i class="fa-solid fa-location-dot"></i>
+                </span>
+                <span class="info-text">Giza,Egypt</span>
+              </div>
+            </div>
+            <div class="info-list">
+              <div>
+                <span class="info-icon">
+                  <i class="fa-solid fa-envelope"></i>
+                </span>
+                <span class="info-text">osamaradwan2003@gmail.com</span>
+              </div>
+            </div>
+            <div class="info-list">
+              <div>
+                <span class="info-icon">
+                  <i class="fa-solid fa-graduation-cap"></i>
+                </span>
+                <span class="info-text">Computer since</span>
+              </div>
+              <div class="info-list">
+                <div>
+                  <span class="info-icon">
+                    <i class="fa-solid fa-phone"></i>
+                  </span>
+                  <span class="info-text">+201092215098</span>
+                </div>
+              </div>
+              <div class="info-list">
+                <div>
+                  <span class="info-icon">
+                    <i class="fa-solid fa-language"></i>
+                  </span>
+                  <span class="info-text">Arabic, English</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="right">
+            <form>
+              <div class="form-group">
+                <input
+                  class="form-controll"
+                  name="name"
+                  id="username"
+                  placeholder="Enter Your Name"
+                  type="text"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  class="form-controll"
+                  name="name"
+                  id="username"
+                  placeholder="Email"
+                  type="email"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  class="form-controll"
+                  name="name"
+                  id="username"
+                  placeholder="Email"
+                  type="text"
+                />
+              </div>
+              <div class="form-group">
+                <textarea
+                  class="form-controll"
+                  name="name"
+                  id="username"
+                  placeholder="Subject"
+                ></textarea>
+              </div>
+              <div class="form-group">
+                <a class="main-btn">
+                  <span class="text">Send</span>
+                  <span class="material-icons-round icon">
+                    <i class="fa-solid fa-paper-plane"></i>
+                  </span>
+                </a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/c217406c4e.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/database.js"></script>
+    <script src="js/helpers.js"></script>
+    <script src="js/handelAPI.js"></script>
+    <!-- <script src="js/"></script> -->
+    <script src="js/app.js"></script>
+  </body>
+</html>
