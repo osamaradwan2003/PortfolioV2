@@ -1,0 +1,2015 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html lang='en' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+  <head>
+    <meta charset='UTF-8'/>
+    <meta content='IE=edge' http-equiv='X-UA-Compatible'/>
+    <meta content='width=device-width, initial-scale=1.0' name='viewport'/>
+    <title><data:blog.pageTitle/></title>
+    <link href='https://fonts.googleapis.com' rel='preconnect'/>
+    <link href='https://fonts.gstatic.com' rel='preconnect'/>
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'/>
+    <link href='https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css' rel='stylesheet'/>
+
+    <b:skin><![CDATA[
+		*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/**global configs **/
+button {
+    all: unset;
+    width: 99%;
+}
+/**set theme colors vars **/
+
+:root {
+  --color-primary: #191d2b;
+  --color-secondary: #27ae60;
+  --color-white: #fff;
+  --color-black: #000;
+  --color-gray-1: #f8f8f8;
+  --color-gray-2: #dbe1e8;
+  --color-gray-3: #b2becd;
+  --color-gray-4: #6c7983;
+  --color-gray-5: #454e56;
+  --color-gray-6: #2a2e35;
+  --color-gray-7: #12181b;
+  --br-sm-2: 14px;
+}
+
+::selection {
+  background-color: var(--color-gray-6);
+}
+
+/**end vars**/
+
+html {
+  scroll-behavior: smooth;
+  user-zoom: none;
+}
+
+body {
+  background-color: var(--color-primary);
+  font-size: 1.1rem;
+  color: var(--color-white);
+  transition: all 0.4s ease-in-out;
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  font-family: inherit;
+  color: inherit;
+  display: inline-block;
+}
+
+.section {
+  width: 100%;
+  min-height: 100vh;
+  padding-bottom: 2rem;
+  position: absolute;
+  top: -100%;
+  left: 0;
+  visibility: hidden;
+  display: none;
+}
+
+#layout .section{
+     display: block;
+     visibility: visible;
+	left: 0;
+	height: auto;
+	min-height: auto;
+}
+
+#layout #username{
+
+display: none;
+
+}
+
+body#layout div.section{
+	
+	width: 80%;
+	margin: 15px auto;
+
+
+}
+
+@media screen and (max-width: 1024px) {
+  .section {
+    padding-bottom: 3rem;
+  }
+}
+
+.section.active {
+  top: 0;
+  visibility: visible;
+  animation: sectionScale 0.5s;
+  display: block;
+  overflow: hidden;
+}
+
+.main-btn,.contact-form-button-submit {
+	all:unset;
+  display: flex;
+  align-content: center;
+  justify-self: center;
+  align-items: center;
+  position: relative;
+  font-weight: 600;
+  align-self: flex-start;
+  border: 1px solid var(--color-secondary);
+  border-radius: 30px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.main-btn::before,.contact-form-button-submit::before {
+  content: "";
+  width: 0%;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+  background-color: var(--color-secondary);
+  transition: all 0.3s ease-in-out;
+}
+
+.main-btn:hover::before,.contact-form-button-submit:hover::before {
+  width: 100%;
+}
+
+.main-btn .text,.contact-form-button-submit .text {
+  padding: 0 2rem;
+}
+
+.main-btn .icon,.contact-form-button-submit .icon {
+  background-color: var(--color-secondary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-start;
+  border-radius: 50%;
+  padding: 0.5rem;
+}
+
+.main-title {
+  text-align: center;
+  text-transform: uppercase;
+  position: relative;
+  width: 100%;
+}
+.main-title h2 {
+  font-weight: 700;
+  font-size: 4rem;
+}
+
+.main-title .title span {
+  color: var(--color-secondary);
+}
+
+.main-title .title span.bg-text {
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--color-gray-6);
+  font-weight: 800;
+  font-size: 6.3rem;
+}
+
+.state-title {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.state-title span {
+  color: var(--color-secondary);
+}
+/**end global**/
+
+/**libs classes */
+
+/**material icon lib**/
+
+.material-icons,
+[class*="material"] {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px; /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: "liga";
+}
+
+/* Rules for sizing the icon. */
+.material-icons.md-18 {
+  font-size: 18px;
+}
+.material-icons.md-24 {
+  font-size: 24px;
+}
+.material-icons.md-36 {
+  font-size: 36px;
+}
+.material-icons.md-48 {
+  font-size: 48px;
+}
+
+/* Rules for using icons as black on a light background. */
+.material-icons.md-dark {
+  color: rgba(0, 0, 0, 0.54);
+}
+.material-icons.md-dark.md-inactive {
+  color: rgba(0, 0, 0, 0.26);
+}
+
+/* Rules for using icons as white on a dark background. */
+.material-icons.md-light {
+  color: rgba(255, 255, 255, 1);
+}
+.material-icons.md-light.md-inactive {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.material-icons.md-18 {
+  font-size: 18px;
+}
+.material-icons.md-24 {
+  font-size: 24px;
+}
+.material-icons.md-36 {
+  font-size: 36px;
+}
+.material-icons.md-48 {
+  font-size: 48px;
+}
+
+.material-icons.md-dark {
+  color: rgba(0, 0, 0, 0.54);
+}
+.material-icons.md-dark.md-inactive {
+  color: rgba(0, 0, 0, 0.26);
+}
+
+.material-icons.md-light {
+  color: rgba(255, 255, 255, 1);
+}
+.material-icons.md-light.md-inactive {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/*end material icon
+
+/**end lib classes*/
+
+/** navigation style **/
+
+.navigation {
+  position: fixed;
+  top: 50%;
+  right: 15px;
+  transform: translate(-50%, -50%);
+}
+
+.navigation-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.navigation-links a {
+  padding: 10px;
+  background-color: var(--color-gray-5);
+  margin: 15px 0px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navigation-links a.active {
+  background-color: var(--color-secondary);
+}
+
+@media screen and (max-width: 1024px) {
+  .navigation {
+    top: unset;
+    right: unset;
+    transform: none;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    flex-direction: row;
+    background: var(--color-gray-6);
+  }
+  .navigation-links {
+    flex-direction: row !important;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+  }
+  .navigation-links a {
+    padding: 10px;
+    margin: 8px 8px;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* start header **/
+.header-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+.left,
+.right {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.header-img {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-img .shape {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 65%;
+  height: 100%;
+  background-color: var(--color-secondary);
+  clip-path: polygon(0 0, 16% 0, 58% 100%, 0% 100%);
+  z-index: -1;
+}
+
+.header-img .img-box {
+  background-color: var(--color-black);
+  width: 68%;
+  height: 90%;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-left: 4rem;
+  box-shadow: 0px 0px 10px var(--color-gray-6);
+}
+
+.header-img .img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+}
+
+.header .right {
+  padding-right: 18rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.right .name {
+  font-size: 3rem;
+}
+
+.right .name span {
+  	color: var(--color-secondary);
+	text-transform: capitalize;
+}
+
+.right p {
+  line-height: 2rem;
+  margin: 1.5rem 0;
+  word-wrap: break-word;
+}
+
+@media screen and (max-width: 1100px) {
+  .section .header-container {
+    grid-template-columns: 1fr;
+  }
+
+  .header-img .shape {
+    width: 96%;
+  }
+
+  .header-img .img-box {
+    width: 68%;
+    height: 90%;
+  }
+
+  .header .right {
+    padding-right: 0rem;
+  }
+
+  .right .name {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  .right p {
+    line-height: 1.2rem;
+    margin: 0.5rem;
+    word-wrap: break-word;
+    text-align: justify;
+  }
+
+  .main-btn {
+    align-self: center;
+  }
+}
+
+/* end header */
+
+/** start about section **/
+
+.about-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2rem;
+  padding-top: 3rem;
+  padding-bottom: 5rem;
+  align-items: start;
+  justify-items: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.info-title {
+  margin: 0px;
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.about-left {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  align-self: center;
+  padding-left: 5rem;
+}
+
+p.about-info {
+  padding: 1rem;
+  line-height: 2rem;
+  color: var(--color-gray-1);
+  text-align: justify;
+}
+
+.about-right {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2rem;
+  padding-right: 8rem;
+  align-items: center;
+  justify-items: stretch;
+  justify-content: center;
+  align-content: center;
+}
+
+.state-card {
+  border: 1px solid var(--color-gray-5);
+  border-radius: 5px;
+  box-shadow: 1px 2px 15px rgb(0 0 0 / 10%);
+  transition: all 0.2s ease-in-out;
+  cursor: default;
+}
+
+.state-card:hover {
+  border: 1px solid var(--color-secondary);
+  box-shadow: 1px 4px 15px rgb(0, 0, 0, 0.32);
+  transform: translateY(-5px);
+}
+
+.state-text {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+}
+
+.state-text .state-record {
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--color-secondary);
+}
+
+.state-text .small-text {
+  position: relative;
+  text-transform: uppercase;
+  padding-left: 3rem;
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+}
+
+.state-text .small-text::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 0;
+  width: 2rem;
+  height: 2px;
+  background-color: var(--color-gray-2);
+}
+
+/** start skill **/
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-content: center;
+    justify-content: center;
+    align-items: stretch;
+    justify-items: stretch;
+    grid-gap: 2rem;
+    padding: 1rem 8rem;
+}
+
+.skill-card {
+  padding: 1rem;
+  border: 1px solid var(--color-gray-5);
+  border-radius: 5px;
+  box-shadow: 1px 2px 12px rgb(0 0 0 / 15%);
+  cursor: default;
+  transition: all 0.2s ease-in-out;
+}
+
+.skill-card:hover {
+  border: 1px solid var(--color-secondary);
+  transform: translateY(-5px);
+}
+
+.skill-ico {
+  font-size: 3rem;
+  color: var(--color-secondary);
+}
+.skill-name {
+  margin: 0.7rem 0;
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--color-secondary);
+}
+.skill-info {
+  text-align: justify;
+  line-height: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--color-gray-2);
+}
+
+/** end skulls*/
+
+/**timeline **/
+
+.timeline-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-content: center;
+  justify-content: center;
+  align-items: stretch;
+  justify-items: center;
+  padding: 1rem 8rem;
+}
+
+.timeline-card {
+  position: relative;
+  padding-left: 3rem;
+  border-left: 1px solid var(--color-gray-5);
+}
+
+.timeline-icon {
+  position: absolute;
+  left: -27px;
+  width: 50px;
+  height: 50px;
+  background: var(--color-secondary);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+.timeline-date {
+  font-size: 0.9rem;
+  /* padding: 5px; */
+  padding: 0.2rem 0.6rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: max-content;
+  background: var(--color-gray-6);
+  border-radius: 30px;
+}
+.timeline-title {
+  font-weight: 600;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  margin: 1rem 0;
+}
+
+.timeline-title span {
+  font-weight: 500;
+  color: var(--color-gray-2);
+  font-size: 1.2rem;
+}
+
+.timeline-info {
+  color: var(--color-gray-2);
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+/**end about section**/
+
+/** start portfolio **/
+.portfolio-container {
+  width: 86%;
+  margin: 0 auto;
+}
+
+.project-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  justify-items: stretch;
+  align-content: center;
+}
+
+.project-card {
+  position: relative;
+  text-align: center;
+  align-items: center;
+  border-radius: 30px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid var(--color-secondary);
+  padding: 1rem;
+  box-shadow: 1px 4px 12px rgb(0 0 0 / 25%);
+}
+
+.project-card img {
+  width: 100%;
+  height: 100%;
+}
+
+.project-ifo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-secondary);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transform: scale(0);
+  transform-origin: center;
+  transition: all 0.3s ease-in-out;
+}
+.project-card:hover .project-ifo {
+  transform: scale(1);
+}
+
+.pr-src h4 {
+  margin: 1rem 0;
+}
+.src-icons a {
+  width: 50px;
+  height: 50px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5px;
+  background: var(--color-primary);
+  border-radius: 50%;
+  font-size: 1.5rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.src-icons a:hover {
+  color: var(--color-primary);
+  background: var(--color-white);
+}
+
+/** end portfolio**/
+
+/**  contact Me **/
+
+.contact-container {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  width: 85%;
+  margin: 0 auto;
+}
+
+.info-list {
+  margin: 1rem 0;
+}
+
+span.info-icon {
+  padding-right: 1rem;
+}
+
+.right form {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-direction: column;
+}
+
+.form-group {
+  margin: 0.5rem 0;
+}
+
+.form-controll {
+  width: 100%;
+  background: var(--color-gray-6);
+  color: #fff;
+  padding: 1rem;
+  border-radius: 30px;
+  outline: navajowhite;
+  border: none;
+}
+
+textarea.form-controll {
+  height: 200px;
+  resize: none;
+}
+
+.form-group .main-btn {
+  justify-content: space-between;
+}
+
+/** end contact Me **/
+
+/**animations keyFrame **/
+
+@keyframes sectionScale {
+  0% {
+    transform: translate(0, -100%);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .about-container {
+    justify-items: stretch;
+  }
+  .about-right {
+    grid-template-columns: 1fr;
+  }
+  .about-left {
+    align-self: unset !important;
+    padding-left: 1rem;
+  }
+  .skills-container {
+    padding-right: 7rem;
+    padding-left: 1rem;
+  }
+
+  .portfolio-container {
+    width: 90%;
+    margin: 0;
+    padding-left: 1rem;
+  }
+
+  .contact-container {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .about-right {
+    padding-right: 1rem;
+  }
+
+  .portfolio-container {
+    width: 100%;
+    margin: 0;
+    padding: 0 1rem;
+  }
+  .contact-container {
+    width: 95%;
+  }
+  .left {
+    order: 2;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .main-title h2 {
+    font-size: 3rem;
+  }
+  .about-container {
+    grid-template-columns: 1fr;
+  }
+  .about-right {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 1rem;
+  }
+  .about-left {
+    align-self: unset !important;
+    padding-left: 1rem;
+  }
+
+  .skills-container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+    padding: 1rem 1rem;
+  }
+
+  .timeline-container {
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 1rem;
+  }
+
+  .project-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .contact-container {
+    grid-template-columns: repeat(1, 1fr);
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .about-right {
+    grid-template-columns: repeat(1, 1fr);
+    padding: 0 1rem;
+  }
+  .about-left {
+    padding: 1rem;
+  }
+
+  .skills-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .timeline-container {
+    padding: 1rem 2rem;
+  }
+
+  .project-cards {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+div#projects-pagenation {
+  justify-content: space-around;
+}
+
+.pagination .main-btn {
+  padding: 0.5rem;
+  font-size: 2rem;
+}
+
+.loading {
+  overflow: hidden;
+}
+
+.loader {
+  background-color: var(--color-primary);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.loading .loader {
+  display: flex;
+}
+
+.lds-grid {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-grid div {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color-secondary);
+  animation: lds-grid 1.2s linear infinite;
+}
+.lds-grid div:nth-child(1) {
+  top: 8px;
+  left: 8px;
+  animation-delay: 0s;
+}
+.lds-grid div:nth-child(2) {
+  top: 8px;
+  left: 32px;
+  animation-delay: -0.4s;
+}
+.lds-grid div:nth-child(3) {
+  top: 8px;
+  left: 56px;
+  animation-delay: -0.8s;
+}
+.lds-grid div:nth-child(4) {
+  top: 32px;
+  left: 8px;
+  animation-delay: -0.4s;
+}
+.lds-grid div:nth-child(5) {
+  top: 32px;
+  left: 32px;
+  animation-delay: -0.8s;
+}
+.lds-grid div:nth-child(6) {
+  top: 32px;
+  left: 56px;
+  animation-delay: -1.2s;
+}
+.lds-grid div:nth-child(7) {
+  top: 56px;
+  left: 8px;
+  animation-delay: -0.8s;
+}
+.lds-grid div:nth-child(8) {
+  top: 56px;
+  left: 32px;
+  animation-delay: -1.2s;
+}
+.lds-grid div:nth-child(9) {
+  top: 56px;
+  left: 56px;
+  animation-delay: -1.6s;
+}
+@keyframes lds-grid {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+
+
+	]]></b:skin>
+    
+  </head>
+  <body class='loading'>
+    <div class='loader'>
+      <div class='lds-grid'>
+        <div/>
+        <div/>
+        <div/>
+        <div/>
+        <div/>
+        <div/>
+        <div/>
+        <div/>
+        <div/>
+      </div>
+    </div>
+    	
+    <div class='conatainer'>
+      	<b:section class='section header' id='home'>
+<b:widget id='Image1' locked='false' title='osama amin' type='Image' version='1'>
+  <b:widget-settings>
+    <b:widget-setting name='displayUrl'>https://blogger.googleusercontent.com/img/a/AVvXsEhnPZwdOHv8RYLfQkCVPdW35-mS4g1GrUSohZP7VVljEs8wqApcb1uO6TkMqSq0VDHfT6JQ6z4PLyofY2crKvelOyawjucxoz5CpALWMkZivimKhg6HLdWr6E6y5htQFwmT1edxrYE4qZHCiiWFBV1jFPP4FgjUqygxj-GjarL6hOfk4qg3J4kLdRKRKg=s612</b:widget-setting>
+    <b:widget-setting name='displayHeight'>612</b:widget-setting>
+    <b:widget-setting name='sectionWidth'>947</b:widget-setting>
+    <b:widget-setting name='shrinkToFit'>false</b:widget-setting>
+    <b:widget-setting name='displayWidth'>408</b:widget-setting>
+    <b:widget-setting name='link'>/</b:widget-setting>
+    <b:widget-setting name='caption'><![CDATA[I ❤️ programming. I’ve been doing this for a decade as a full stack developer and as a backend engineer.I can work on the background, API-driven apps or service-oriented architecture or make any software with web & desktop tools.]]></b:widget-setting>
+  </b:widget-settings>
+  <b:includable class='header-container' id='main'>
+          <div class='header-container'>
+            <div class='widget-content left'>
+              <div class='header-img'>
+                <div class='shape'/>
+                <div class='img-box'>
+                  <img expr:alt='data:title' expr:height='data:height' expr:id='data:widget.instanceId + &quot;_img&quot;' expr:src='data:sourceUrl' expr:width='data:width'/>
+                </div>
+              </div>
+              <br/>
+            </div>
+            <div class='right'>
+              <b:if cond='data:title != &quot;&quot;'>
+                <h1 class='name'>
+                  Hi, i&#39;m <span><data:title/></span> A web Developer
+                </h1>
+
+              </b:if>
+              <b:if cond='data:caption'>
+                <p class='caption'><data:caption/></p>
+              </b:if>
+              <a class='main-btn' expr:href='data:link'>
+                <span class='text'>Download CV</span>
+                <span class='material-icons-round icon'>
+                  download_for_offline
+                </span>
+              </a>
+            </div>
+          </div>
+        </b:includable>
+</b:widget>
+</b:section>
+		<section class='section' data-load='loadAbout' data-loaded='false' id='about'>
+        <div class='main-title'>
+          <h2 class='title'>
+            About
+            <span>Me</span>
+            <span class='bg-text'>MY states</span>
+          </h2>
+        </div>
+
+        <div class='about-container'>
+          <div class='about-left'>
+            <h3 class='info-title'>Information about me</h3>
+            <p class='about-info'>
+              At the moment, I&#8217;m a developer advocate on Google&#8217;s Chrome team in
+              Munich, Germany. From January 2010 to November 2011, I was part of
+              the team responsible for the web presence of one of the largest
+              daily newspapers in Germany: Sueddeutsche.de. It&#8217;s a big site,
+              running on a surprisingly antiquated backend; we work hard to keep
+              things running smoothly, and to meet the high expectations of our
+              users. Generally,
+              <br/><br/>
+              we did a pretty good job of it. Before Sueddeutsche, I worked for
+              Yahoo! on their equally massive European news sites. My team and I
+              took news.yahoo.com&#8217;s solid codebase, and made it localizable for
+              distinct markets and languages: we were directly responsible for
+              building and maintaining Yahoo!&#8217;s news sites in the UK, France,
+              Germany, Spain, and Italy, relaunching all five within a year. We
+              laid the foundation for further work that expanded the platform&#8217;s
+              scope to include Singapore and beyond. We did good work while
+              understaffed and under pressure, and I&#8217;m proud of our
+              accomplishments.
+            </p>
+            <a class='main-btn'>
+              <span class='text'>Download CV</span>
+              <span class='material-icons-round icon'>
+                download_for_offline
+              </span>
+            </a>
+          </div>
+          <div class='about-right'>
+            <div class='state-card'>
+              <div class='state-text'>
+                <h3 class='state-record'>600+</h3>
+                <div class='small-text'>
+                  <span>Projects</span> <br/>
+                  <span>Completed</span>
+                </div>
+              </div>
+            </div>
+            <div class='state-card'>
+              <div class='state-text'>
+                <h3 class='state-record'>600+</h3>
+                <div class='small-text'>
+                  <span>Projects</span> <br/>
+                  <span>Completed</span>
+                </div>
+              </div>
+            </div>
+            <div class='state-card'>
+              <div class='state-text'>
+                <h3 class='state-record'>600+</h3>
+                <div class='small-text'>
+                  <span>Projects</span> <br/>
+                  <span>Completed</span>
+                </div>
+              </div>
+            </div>
+            <div class='state-card'>
+              <div class='state-text'>
+                <h3 class='state-record'>600+</h3>
+                <div class='small-text'>
+                  <span>Projects</span> <br/>
+                  <span>Completed</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class='about-skills'>
+          <h3 class='state-title'><span>MY</span> Skills</h3>
+          <div class='skills-container' id='skills'/>
+          <div class='pagination' id='skills-pagenation'/>
+        </div>
+
+        <div class='timeline'>
+          <h2 class='state-title'><span>MY </span> timeline</h2>
+          <div class='timeline-container' id='timeline'/>
+          <div class='pagination' id='timeline-pagenation'/>
+        </div>
+      </section>
+      	<section class='section' data-load='loadProjects' data-loaded='false' id='projects'>
+        <div class='main-title'>
+          <h2 class='title'>
+            <span>MY</span>
+            Protfolio
+            <span class='bg-text'>MY Works</span>
+          </h2>
+        </div>
+        <div class='portfolio-container'>
+          <div class='project-cards' id='projects-list'/>
+          <div class='pagination' id='projects-pagenation'/>
+        </div>
+      </section>
+    	<b:section class='section' id='contact'>
+<b:widget id='ContactForm1' locked='false' title='Contact Me' type='ContactForm' version='1'>
+  <b:includable id='main'>
+          <div class='main-title'>
+          <h2 class='title'>
+            Contact
+            <span>Me</span>
+            <span class='bg-text'>My Contact</span>
+          </h2>
+        </div>
+          	<div class='contact-container'>
+           		<div class='left'>
+                    <div class='info-list'>
+                      <div>
+                        <span class='info-icon'>
+                          <i class='fa-solid fa-location-dot'/>
+                        </span>
+                        <span class='info-text'>Giza,Egypt</span>
+                      </div>
+                    </div>
+                    <div class='info-list'>
+                      <div>
+                        <span class='info-icon'>
+                          <i class='fa-solid fa-envelope'/>
+                        </span>
+                        <span class='info-text'>osamaradwan2003@gmail.com</span>
+                      </div>
+                    </div>
+                    <div class='info-list'>
+                      <div>
+                        <span class='info-icon'>
+                          <i class='fa-solid fa-graduation-cap'/>
+                        </span>
+                        <span class='info-text'>Computer since</span>
+                      </div>
+                      <div class='info-list'>
+                        <div>
+                          <span class='info-icon'>
+                            <i class='fa-solid fa-phone'/>
+                          </span>
+                          <span class='info-text'>+201092215098</span>
+                        </div>
+                      </div>
+                      <div class='info-list'>
+                        <div>
+                          <span class='info-icon'>
+                            <i class='fa-solid fa-language'/>
+                          </span>
+                          <span class='info-text'>Arabic, English</span>
+                        </div>
+                      </div>
+                    </div>
+          		</div>
+              <div class='right'>
+                <div class='form'>
+                  <form name='contact-form'>
+                    
+                    <div class='from-group'>
+                      <input class='form-controll' expr:id='data:widget.instanceId + &quot;_contact-form-name&quot;' name='name' placeholder='Your Name *' type='text' value=''/>
+                    </div>
+                    <div class='form-group'>
+                      	<input class=' form-controll' expr:id='data:widget.instanceId + &quot;_contact-form-email&quot;' name='email' placeholder='Your Email *' size='30' type='text' value=''/>
+                    </div>
+                     <div class='form-group'>
+                      <textarea class='form-controll' cols='25' expr:id='data:widget.instanceId + &quot;_contact-form-email-message&quot;' name='email-message' placeholder='Message *' rows='5'/>
+                    </div>
+                    <div class='form-group'>
+                          <button class='main-btn' expr:id='data:widget.instanceId + &quot;_contact-form-submit&quot;' expr:value='data:contactFormSendMsg'>
+                            <span class='text'>Send</span>
+                            <span class='material-icons-round icon'>
+                              <i class='fa-solid fa-paper-plane'/>
+                            </span>
+                          </button>
+                        </div>
+                    <p/>
+                    <div style='text-align: center; max-width: 222px; width: 100%'>
+                      <p class='contact-form-error-message' expr:id='data:widget.instanceId + &quot;_contact-form-error-message&quot;'/>
+                      <p class='contact-form-success-message' expr:id='data:widget.instanceId + &quot;_contact-form-success-message&quot;'/>
+                    </div>
+                  </form>
+                </div>
+              </div>
+          	</div>
+  			<b:include name='quickedit'/>
+		</b:includable>
+</b:widget>
+</b:section>
+    </div>
+
+    <script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'/>
+
+    
+   	<script src='https://kit.fontawesome.com/c217406c4e.js'/>
+	 <script type='text/javascript'> 
+ 	//<![CDATA[
+      
+    	/*jshint esversion:6 */
+
+window.metaData = {
+  links: [
+    {
+      name: "Home",
+      icon: "home",
+      path: "#home",
+    },
+    {
+      name: "About",
+      icon: "person",
+      path: "#about",
+    },
+    {
+      name: "Portfolio",
+      icon: "work",
+      path: "#projects",
+    },
+    {
+      name: "ContactMe",
+      icon: "drafts",
+      path: "#contact",
+    },
+  ],
+};
+
+/*jshint esversion: 6 */
+
+Element.prototype.fadeIn = function (speed, callback, display) {
+  display = display || "block";
+  let mainStyleProp = window.getComputedStyle(this).display,
+    opacity = 0;
+  this.style.opacity = 0;
+  let x = setInterval(() => {
+    if (opacity >= 1) {
+      this.style.display = mainStyleProp != "none" ? mainStyleProp : display;
+      this.style.opacity = 1;
+      if (callback) {
+        callback.call(this);
+      }
+      return clearInterval(x);
+    }
+    this.style.opacity = opacity;
+    opacity += 50 / speed;
+  }, 50);
+  return this;
+};
+Element.prototype.fadeOut = function (speed, callback, display) {
+  let opacity = 1;
+  this.style.opacity = 1;
+  let x = setInterval(() => {
+    if (opacity <= 0) {
+      this.style.opacity = 0;
+      if (callback) {
+        callback.call(this);
+      }
+      this.style.display = display;
+      return clearInterval(x);
+    }
+    this.style.opacity = opacity;
+    opacity -= 50 / speed;
+  }, 50);
+  return this;
+};
+
+Element.prototype.fadeToggle = function (speed, callback, display) {
+  display = display || "block";
+  let mainStyleProp = window.getComputedStyle(this).display,
+    opacity = window.getComputedStyle(this).opacity;
+  if (mainStyleProp == "none" || opacity <= 0) {
+    this.fadeIn(speed, callback, display);
+  } else {
+    this.fadeOut(speed, callback);
+  }
+  return this;
+};
+
+Element.prototype.siblings = function () {
+  return this.parentElement.children.removeElement(this);
+};
+
+Element.prototype.addClass = function (className) {
+  this.classList.add(className);
+  return this;
+};
+
+Element.prototype.remove = function (className) {
+  this.classList.remove(className);
+  return this;
+};
+
+Element.prototype.hasClass = function (className) {
+  this.classList.contains(className);
+};
+
+Element.prototype.toggle = function (className) {
+  if (this.hasClass(className)) return this.removeClass(className);
+  return this.addClass(className);
+};
+
+/**
+ *
+ * remove Element
+ *
+ * @param {Element | string} elem
+ *
+ * @return {HTMLAllCollection}
+ */
+
+HTMLCollection.prototype.removeElement = function (elem) {
+  if (typeof elem == "string") elem = s(elem);
+  let filtered = [...this].filter((e) => {
+    return e != elem;
+  });
+  filtered.__proto__ = this.__proto__;
+  return filtered;
+};
+
+HTMLCollection.prototype.addClass = function (className) {
+  for (let col of this) {
+    col.addClass(className);
+  }
+  return this;
+};
+
+HTMLCollection.prototype.removeClass = function (className) {
+  for (let col of this) {
+    col.remove(className);
+  }
+  return this;
+};
+
+HTMLCollection.prototype.toggle = function (className) {
+  for (let col of this) {
+    col.toggle(className);
+  }
+  return this;
+};
+
+/**
+ * short hand selector function
+ *
+ *
+ * @param {String} elem
+ * @param {Number} all
+ * @returns {Element}
+ */
+function s(elem, all = 0) {
+  if (all != 0) {
+    return document.querySelectorAll(elem);
+  }
+  return document.querySelector(elem);
+}
+
+
+/*jshint esversion: 8 */
+var blogInfo = {};
+
+/**
+ *
+ * @param {JSON} json
+ */
+
+let MaxResult = 6;
+let MaxSKillsResult = 9;
+let MaxTimeLinesResult = 6;
+let screenSize = window.screen.availWidth;
+
+window.localStorage.setItem("currIndex", 1);
+window.localStorage.setItem("currSkillsIndex", 1);
+window.localStorage.setItem("currTimeLineIndex", 1);
+
+async function creteProjectsPagination(elem, max, label = "projects") {
+  let allPosts = blogInfo[label].totalPosts,
+    totalIndexes = Math.max(allPosts / max) + 1,
+    curr = parseInt(localStorage.getItem("currIndex")),
+    lists;
+
+  if (totalIndexes != 1) {
+    lists = `<a class='main-btn' id="prev" onclick="loadPosts('prev', '${label}', false)" class="pagination-item ${
+      curr <= MaxResult ? "disable" : ""
+    }">
+                <i class="fa-solid fa-angle-left"></i>
+
+            </a>\n`;
+
+    lists += `<a class='main-btn' id="next" onclick="loadPosts('next', '${label}', false)" class="pagination-item ${
+      curr >= blogInfo.totalPosts ? "disable" : ""
+    }">
+              
+                <i class="fa-solid fa-angle-right"></i>
+            </a>`;
+  }
+
+  s(elem).innerHTML = lists;
+}
+async function creteLoadMore(elem, max, fname, indxName, label) {
+  let allPosts = blogInfo[label].totalPosts,
+    totalIndexes = Math.max(allPosts / max),
+    curr = parseInt(localStorage.getItem(indxName)),
+    lists;
+  if (totalIndexes != 1) {
+    lists = `<a class="main-btn" id="next" onclick="${fname}('next')" class="pagination-item ${
+      curr >= blogInfo[label]["totalPosts"] ? "disable" : ""
+    }">
+            <span class="text">Show More</span>
+                  <span class="material-icons-round icon">
+                    add_circle_outline
+                  </span>
+            </a>`;
+  }
+
+  s(elem).innerHTML = lists;
+}
+
+function updateCurrIndex(num, label, MaxResult, indexName = "currIndex") {
+  if (typeof num == "string") {
+    if (num == "prev" && localStorage.getItem(indexName) > MaxResult) {
+      let curr = parseInt(localStorage.getItem(indexName));
+      localStorage.setItem(indexName, curr - MaxResult);
+    } else if (
+      num == "next" &&
+      localStorage.getItem(indexName) < blogInfo[label].totalPosts
+    ) {
+      let curr = parseInt(localStorage.getItem(indexName));
+      localStorage.setItem(indexName, curr + MaxResult);
+    }
+  } else {
+    localStorage.setItem(indexName, num);
+  }
+  return localStorage.getItem(indexName);
+}
+
+function createUrl(num, MaxResult, label = "all", indexName = "currIndex") {
+  let link;
+  if (typeof num == "string") {
+    if (num == "prev" && localStorage.getItem(indexName) > MaxResult) {
+      let curr = parseInt(localStorage.getItem(indexName));
+      return (
+        
+        `${window.location.origin}/feeds/posts/summary${
+          label == "all" ? "" : "/-/" + label
+        }?max-results=${MaxResult}&start-index=${curr - MaxResult}&alt=json`
+      );
+    } else if (
+      num == "next" &&
+      localStorage.getItem(indexName) < blogInfo[label].totalPosts
+    ) {
+      let curr = parseInt(localStorage.getItem(indexName));
+      return (
+       
+        `${window.location.origin}/feeds/posts/summary${
+          label == "all" ? "" : "/-/" + label
+        }?max-results=${MaxResult}&start-index=${curr + MaxResult}&alt=json`
+      );
+    }
+  } else {
+    return (
+      
+      `${window.location.origin}/feeds/posts/summary${
+        label == "all" ? "" : "/-/" + label
+      }?max-results=${MaxResult}&start-index=${num}&alt=json`
+    );
+  }
+}
+
+async function loadPosts(num, label = "projects", noScroll = true) {
+  let link =
+      num.indexOf("http") != -1
+        ? num
+        : createUrl(num, MaxResult, label, "currIndex"),
+    postHtml = "",
+    postShowElem = s("#projects-list");
+  let currIndex = parseInt(localStorage.getItem("currIndex")),
+    loader = document.body;
+
+  if (link != undefined) {
+    if (currIndex != num) {
+      loader.classList.add("loading");
+      fetch(link, {})
+        .then((res) => res.json())
+        .then((data) => {
+          blogInfo = Object.assign(
+            {
+              [label]: {
+                totalPosts: parseInt(data.feed.openSearch$totalResults.$t),
+              },
+            },
+            blogInfo
+          );
+
+          currIndex = parseInt(localStorage.getItem("currIndex"));
+          let posts = data.feed.entry;
+          if (Array.isArray(posts)) {
+            updateCurrIndex(num, label, MaxResult, "currIndex");
+            for (let post of posts) {
+              let summary = post.summary.$t,
+                gitLink = summary.slice(
+                  summary.search("git"),
+                  summary.search(",", summary.search("git") + 1)
+                ),
+                behanceLink = summary.slice(summary.search("b:")).split(",")[0],
+                youtubeLink = summary.slice(summary.search("y")).split(",")[0];
+              gitLink = gitLink.slice(gitLink.search(":") + 1).trim();
+              behanceLink = behanceLink
+                .slice(behanceLink.search(":") + 1)
+                .trim();
+              youtubeLink = youtubeLink
+                .slice(youtubeLink.search(":") + 1)
+                .trim();
+              postHtml += `
+              <div class="project-card">
+              <img
+                src="${post.media$thumbnail.url.replace(
+                  /s72-(\w+)?-(\w+)?-c/,
+                  "s2110"
+                )}"
+                alt="${post.title.$t}"
+              />
+              <div class="project-ifo">
+                <div class="project-title">
+                  <h4>${post.title.$t}</h4>
+                </div>
+                <div class="pr-src">
+                  <h4>Project Source</h4>
+                  <div class="src-icons">
+                    <a target="_blank" href="${gitLink}">
+                      <i class="fa fa-github" aria-hidden="true"></i>
+                    </a>
+                    <a  target="_blank" href="${behanceLink}">
+                      <i class="fab fa-behance"></i>
+                    </a>
+                    <a  target="_blank" href="${youtubeLink}">
+                      <i class="fa fa-youtube" aria-hidden="true"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+                      `;
+            }
+            postShowElem.innerHTML = postHtml;
+            if (!noScroll) {
+              postShowElem.scrollIntoView();
+            }
+            creteProjectsPagination(
+              "#projects-pagenation",
+              MaxResult,
+              "projects"
+            );
+            loader.classList.remove("loading");
+          } else {
+            swal("Portfolio Projects", "We Work To add More Projects");
+            loader.classList.remove("loading");
+          }
+        })
+        .catch((e) => {
+          swal(
+            "Internet Error",
+            "Can't to load Projects Check Your Internet Or Reload This Page"
+          );
+          console.log(e);
+          loader.classList.remove("loading");
+        });
+    }
+  } else {
+    swal("Portfolio Projects", "This is Latest Projects");
+  }
+}
+
+async function loadSkills(num, label = "skills", noScroll = true) {
+  let link =
+      num.indexOf("http") != -1
+        ? num
+        : createUrl(num, MaxSKillsResult, label, "currSkillsIndex"),
+    postHtml = "",
+    postShowElem = s("#skills");
+  let currIndex = parseInt(localStorage.getItem("currSkillsIndex")),
+    loader = document.body;
+
+  if (link != undefined) {
+    if (currIndex != num) {
+      loader.classList.add("loading");
+      fetch(link, {})
+        .then((res) => res.json())
+        .then((data) => {
+          blogInfo = Object.assign(
+            {
+              [label]: {
+                totalPosts: parseInt(data.feed.openSearch$totalResults.$t),
+              },
+            },
+            blogInfo
+          );
+          currIndex = parseInt(localStorage.getItem("currSkillsIndex"));
+          let posts = data.feed.entry;
+          if (Array.isArray(posts)) {
+            updateCurrIndex(num, label, MaxSKillsResult, "currSkillsIndex");
+            for (let post of posts) {
+              let summary = post.summary.$t,
+                icon = summary
+                  .slice(summary.search("icon:"))
+                  .trim()
+                  .split(",")[0]
+                  .replace("icon:", "")
+                  .trim(),
+                color = summary
+                  .slice(summary.search("color:"))
+                  .trim()
+                  .split(",")[0]
+                  .replace("color:", "")
+                  .trim(),
+                skillInfo = summary.slice(summary.search("text:"));
+              skillInfo = skillInfo.split(",")[0].replace("text:", "").trim();
+              postHtml += `
+                <div class="skill-card">
+                  <div class="skill-ico">
+                    <i style="color: ${color}" class="fa-brands ${icon}"></i>
+                  </div>
+                  <h4 class="skill-name">${post.title.$t}</h4>
+                  <p class="skill-info">
+                    ${skillInfo}
+                  </p>
+              </div>
+              `;
+            }
+            postShowElem.insertAdjacentHTML("beforeEnd", postHtml);
+            if (!noScroll) {
+              postShowElem.scrollIntoView();
+            }
+            creteLoadMore(
+              "#skills-pagenation",
+              MaxSKillsResult,
+              "loadSkills",
+              "currSkillsIndex",
+              "skills"
+            );
+            loader.classList.remove("loading");
+          } else {
+            swal("Portfolio Skills", "I work to improve My Skills Now...");
+            loader.classList.remove("loading");
+          }
+        })
+        .catch((e) => {
+          swal(
+            "Internet Error",
+            "Can't to load Skills Check Your Internet Or Reload This Page"
+          );
+          loader.classList.remove("loading");
+        });
+    }
+  } else {
+    swal("Portfolio Skills", "I work to improve My Skills Now...");
+    loader.classList.remove("loading");
+  }
+}
+
+async function loadTimeLine(num, label = "timeline", noScroll = true) {
+  let link =
+      num.indexOf("http") != -1
+        ? num
+        : createUrl(num, MaxTimeLinesResult, label, "currTimeLineIndex"),
+    postHtml = "",
+    postShowElem = s("#timeline");
+  let currIndex = parseInt(localStorage.getItem("currTimeLineIndex")),
+    loader = document.body;
+
+  if (link != undefined) {
+    if (currIndex != num) {
+      loader.classList.add("loading");
+      await fetch(link, {})
+        .then((res) => res.json())
+        .then((data) => {
+          blogInfo = Object.assign(
+            {
+              [label]: {
+                totalPosts: parseInt(data.feed.openSearch$totalResults.$t),
+              },
+            },
+            blogInfo
+          );
+
+          currIndex = parseInt(localStorage.getItem("currTimeLineIndex"));
+          let posts = data.feed.entry;
+          if (Array.isArray(posts)) {
+            updateCurrIndex(
+              num,
+              label,
+              MaxTimeLinesResult,
+              "currTimeLineIndex"
+            );
+
+            for (let post of posts) {
+              let summary = post.summary.$t,
+                icon = summary
+                  .slice(summary.search("icon:"))
+                  .trim()
+                  .split(",")[0]
+                  .replace("icon:", "")
+                  .trim(),
+                date = summary
+                  .slice(summary.search("date:"))
+                  .trim()
+                  .split(",")[0]
+                  .replace("date:", "")
+                  .trim()
+                  .split("-"),
+                timelineInfo = summary.slice(summary.search("text:")),
+                title = post.title.$t.split("-");
+              timelineInfo = timelineInfo
+                .split(",")[0]
+                .replace("text:", "")
+                .trim();
+              postHtml += `
+                <div class="timeline-card">
+                  <div class="timeline-icon">
+                    <i class="${icon}"></i>
+                  </div>
+                  <div class="timeline-date">${date[0]}  <span>${
+                date[1] != undefined ? "-" + date[1] : ""
+              }</span></div>
+                  <h5 class="timeline-title">
+                    ${title[0]} <span>${
+                title[1] != undefined ? "-" + title[1] : ""
+              }</span>
+                  </h5>
+                  <p class="timeline-info">
+                  ${timelineInfo}
+                  </p>
+                </div>
+              `;
+            }
+            postShowElem.insertAdjacentHTML("beforeEnd", postHtml);
+            if (!noScroll) {
+              postShowElem.scrollIntoView();
+            }
+            creteLoadMore(
+              "#timeline-pagenation",
+              MaxTimeLinesResult,
+              "loadTimeLine",
+              "currTimeLineIndex",
+              "timeline"
+            );
+            loader.classList.remove("loading");
+          } else {
+            loader.classList.remove("loading");
+            swal("Portfolio TimeLine", "This Is latest Activity In My Life");
+          }
+
+          return data;
+        })
+        .catch((e) => {
+          swal(
+            "Internet Error",
+            "Can't to load TimeLine Check Your Internet Or Reload This Page"
+          );
+          console.log(e);
+          loader.classList.remove("loading");
+        });
+    }
+  } else {
+    loader.classList.remove("loading");
+    swal("Portfolio Projects", "This Is latest Activity In My Life");
+  }
+}
+
+
+
+/*jshint esversion:6 */
+
+/*jshint esversion:6 */
+
+let hash = window.location.hash;
+let scrollHeight = document.documentElement.scrollHeight;
+let loaded = false;
+/**
+ * load links From DataBase js file
+ *
+ * @param {Number} start
+ * @param {Number} end
+ * @param {Array} skills
+ */
+function loadLinks(links) {
+  let renderHtml = "";
+
+  for (let i = 0; i < links.length; i++) {
+    let html = `
+            <a onclick="swapBetweenSection(this)" href="${
+              links[i].path
+            }" class="link-anc ${
+      hash == links[i].path ? "active" : ""
+    }" title="${links[i].name}">
+              <span class='material-icons'>${links[i].icon}</span>
+            </a>
+          `;
+    renderHtml += html;
+  }
+  return renderHtml;
+}
+
+// /**
+//  * lazy load section context
+//  *
+//  *
+//  * @param {Element} sec
+//  * @param {String} ctx
+//  */
+// function loadSection(sec, ctx) {
+
+// }
+
+/**
+ * swap Section effect on click navigation icon
+ * @param {Element} ele
+ */
+function swapBetweenSection(ele) {
+  let sec = s(ele.getAttribute("href"));
+  ele.addClass("active").siblings().removeClass("active");
+  sec.addClass("active").siblings().removeClass("active");
+}
+
+function loadActive() {
+  let urlHash = window.location.hash,
+    link = s(`[href="${urlHash != "" ? urlHash : "#home"}"]`);
+  link.click();
+  loadSectionContent(s(urlHash));
+}
+
+function nextSection() {
+  link = s(`[href="${hash != "" ? hash : "#home"}"]`);
+  link.nextElementSibling?.click();
+  hash = window.location.hash;
+}
+
+function PrevSection() {
+  let urlHash = window.location.hash,
+    link = s(`[href="${hash != "" ? hash : "#home"}"]`);
+  link.previousElementSibling?.click();
+}
+
+window.addEventListener("load", function () {
+  document.body.insertAdjacentHTML(
+    "beforeend",
+    `    <div class="navigation">
+    <div class="navigation-links">
+    ${loadLinks(metaData.links)}
+    </div>
+    </div>`
+  );
+  loadActive();
+  document.body.classList.remove("loading");
+ 
+});
+
+/**
+ *
+ * @param {Element} sec
+ */
+
+function loadAbout() {
+  loadSkills(createUrl(1, MaxSKillsResult, "skills", "currSkillsIndex"));
+  loadTimeLine(
+    createUrl(1, MaxTimeLinesResult, "timeline", "currTimeLineIndex")
+  );
+}
+
+function loadProjects() {
+  loadPosts(createUrl(1, MaxResult, "projects", "currIndex"));
+}
+
+/**
+ *
+ * @param {Element} sec
+ */
+
+function loadSectionContent(sec) {
+  document.body.classList.add("loading");
+  let loaded = sec.getAttribute("data-loaded") ?? "true";
+  loaded = loaded == "false" ? false : true;
+  if (!loaded) {
+    let funcToLoad = sec.getAttribute("data-load").split(",");
+    for (func of funcToLoad) {
+      window[func]();
+    }
+    sec.setAttribute("data-loaded", "true");
+  }
+}
+
+let changeOnScroll = () => {
+  //let hash = window.location.hash;
+  let currSec = s(hash),
+    scrollHeight =
+      Math.max(
+        document.body.scrollHeight,
+        document.documentElement.scrollHeight,
+        document.body.offsetHeight,
+        document.documentElement.offsetHeight,
+        document.body.clientHeight,
+        document.documentElement.clientHeight
+      ) -
+      document.scrollingElement.clientHeight;
+  if (scrollY >= scrollHeight && !(scrollHeight <= 0)) {
+    let nextElem = currSec.nextElementSibling;
+    if (nextElem) {
+      window.location.hash = nextElem.id;
+      hash = "#" + nextElem.id;
+    }
+  } else if (scrollHeight > 0 && scrollY <= 0) {
+    let nextElem = currSec.previousElementSibling;
+    if (nextElem) {
+      window.location.hash = nextElem.id;
+      hash = "#" + nextElem.id;
+    }
+  }
+};
+
+
+const getDeviceType = () => {
+  const ua = navigator.userAgent;
+  if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
+    return "tablet";
+  }
+  if (
+    /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(
+      ua
+    )
+  ) {
+    return "mobile";
+  }
+  return "desktop";
+};
+
+window.onhashchange = function (e) {
+  loadActive();
+  loadSectionContent(s(window.location.hash));
+  document.body.classList.remove("loading");
+};
+
+    //]]>
+    </script>
+  </body>
+</html>
